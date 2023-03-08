@@ -50,36 +50,46 @@
 
 <script>
 
+// Check if the 'taskME' key exists in local storage
+let allTasks = localStorage.getItem("taskME") || "";
 
-    let allTasks = localStorage.getItem("taskME");
-    if (allTasks === null) {
-        allTasks = "";
-    }
-
-    function addTask() {
-        if (typeof (Storage) !== undefined) {
-            let holdTask = document.getElementById("task").value;
-            allTasks = holdTask + " \n" + allTasks;
-
-            document.getElementById("taskList").value = allTasks;
-            document.getElementById("task").value = "";
-            localStorage.setItem("taskME", allTasks);
-        }
-        else {
-            document.getElementById("taskList").innerHTML = "Sorry, your browser does not support Web Storage...";
-        }
-    }
-    function clearTask() {
-        document.getElementById("taskList").value = "";
-        document.getElementById("task").value = "";
-        allTasks = "";
-
-
-        localStorage.removeItem("taskME");
-    }
-    window.onload = function () {
+// Function to add a new task
+function addTask() {
+    // Check if the browser supports local storage
+    if (typeof(Storage) !== undefined) {
+        // Get the new task from the input field
+        let holdTask = document.getElementById("task").value;
+        // Add the new task to the existing tasks
+        allTasks = holdTask + "\n" + allTasks;
+        // Update the task list on the page
         document.getElementById("taskList").value = allTasks;
-    };
+        // Clear the input field
+        document.getElementById("task").value = "";
+        // Store the updated task list in local storage
+        localStorage.setItem("taskME", allTasks);
+    } else {
+        // If local storage is not supported, show an error message
+        document.getElementById("taskList").innerHTML = "Sorry, your browser does not support Web Storage...";
+    }
+}
+
+// Function to clear all tasks
+function clearTask() {
+    // Clear the task list on the page
+    document.getElementById("taskList").value = "";
+    // Clear the input field
+    document.getElementById("task").value = "";
+    // Set allTasks to an empty string
+    allTasks = "";
+    // Remove the 'taskME' key from local storage
+    localStorage.removeItem("taskME");
+}
+
+// When the page loads, update the task list on the page with the existing tasks
+window.onload = function() {
+    document.getElementById("taskList").value = allTasks;
+};
+
 
 </script>
 
