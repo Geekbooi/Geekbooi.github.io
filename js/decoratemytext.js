@@ -27,10 +27,3 @@ function binger(){
     
 }
 
-// function igpayAtinlay(){
-//     let textArea = document.getElementById("text_area");
-
-//     textArea.value.split(" ").forEach(el => {
-//         console.log(el.trim().toLowerCase());
-//     });
-// }
