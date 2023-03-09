@@ -26,7 +26,7 @@ function addAccount(){
 
 function listAccount(){
     for (let x of accountInfoList){
-        textField.value += 'Account Name:  ' + x.name + '   Deposit value:  ' + x.value + '\r\n'; 
+        textField.value += 'Account Name:  ' + x.name + ' --->  and the Deposit value:  ' + x.value + '\r\n'; 
     }
 }
 
