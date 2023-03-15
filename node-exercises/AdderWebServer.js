@@ -1,7 +1,7 @@
 var http = require('http');
 var url = require('url');
 var fs = require('fs');
-var addmod = require('./addmod.js');
+var addmod = require('./addmod');
 
 let server = http.createServer((req,res)=>{
     res.statusCode = 200;
