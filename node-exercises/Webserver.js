@@ -17,7 +17,7 @@ app.get('/calculate', function(req, res) {
     } else if (vals.operation === "subtraction") {
         result = parseInt(vals.first) - parseInt(vals.second);
     }
-
+    
     res.send(`<!DOCTYPE html>
     <html>
     <head><meta charset=\"utf-8\"/>
